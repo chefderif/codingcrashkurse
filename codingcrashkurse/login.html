@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="container">
+        <form>
+          <fieldset>
+            <legend>Login</legend>
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username"
+              v-model="username"
+            />
+            <br />
+            <label for="password">Password</label>
+            <input
+              type="text"
+              id="password"
+              placeholder="Password"
+              v-model="password"
+            />
+            <br />
+            <button class="primary" @click="checkCredentials($event)">
+              Primary
+            </button>
+          </fieldset>
+        </form>
+        <p>{{ feedback }}</p>
+        <ul>
+          <li v-for="user in users" :key="user.name">
+            <a @click="changeUser(user.name)">{{user.name}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="login.js"></script>
+  </body>
+</html>
