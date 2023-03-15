@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vue Js 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div><a :href="website">Webseite</a></div>
+      <input type="text" v-model="firstName" placeholder="firstName" />
+      <input type="text" v-model="lastName" placeholder="lastName" />
+
+      <h1>{{ fullName }}</h1>
+
+      <h1>{{ sayHi('Hind') }}</h1>
+    </div>
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+      createApp({
+        data() {
+          return {
+            lastName: "",
+            firstName: "",
+            message: "Hello Vue!",
+            website: "http://www.google.de",
+          };
+        },
+        methods: {
+          sayHi: function (params) {
+            return `Hallo ${params}`;
+          },
+        },
+        computed: {
+          fullName() {
+            return this.firstName + " " + this.lastName;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
